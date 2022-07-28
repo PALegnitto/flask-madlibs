@@ -25,5 +25,15 @@ def render_question():
 def render_story_page():
     """ renders the story page with the story,
     from the Story instance template text"""
+
+    print(request.args)
+    output_string = silly_story.generate(request.args)
+
     # make a dict form the form inputs
-    return render_template('results.html')
+    return render_template('results.html', output_string = output_string)
+
+
+
+
+# """Once upon a time, in a long-ago {place}, there lived an exceptionally
+#    {adjective} {noun}. It loved to {verb} with {plural_noun}."""
